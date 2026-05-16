@@ -9,6 +9,8 @@ print("3. Hard")
 
 difficulty = input("Choose difficulty: ")
 
+question_amount = int(input("How many questions would you like? "))
+
 def ask_question():
     global score
 
@@ -37,7 +39,14 @@ def ask_question():
     else:
         correct_answer = num1 * num2
 
-    answer = int(input(f"What is {num1} {operator} {num2}? "))
+    while True:
+
+        try:
+            answer = int(input(f"What is {num1} {operator} {num2}? "))
+            break
+
+        except:
+            print("Please enter a number.")
 
     if answer == correct_answer:
         print("Correct!")
@@ -54,12 +63,12 @@ while play_again == "yes":
 
     print("Welcome to the Maths Quiz!")
 
-    ask_question()
-    ask_question()
-    ask_question()
+    for i in range(question_amount):
+        ask_question()
 
     print("Quiz Complete!")
     print("Your final score is:")
     print(score)
 
     play_again = input("Play again? (yes/no): ")
+    
