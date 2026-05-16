@@ -46,12 +46,20 @@ def ask_question():
     else:
         print("Wrong!")
 
-print("Welcome to the Maths Quiz!")
+play_again = "yes"
 
-ask_question()
-ask_question()
-ask_question()
+while play_again == "yes":
 
-print("Quiz Complete!")
-print("Your final score is:")
-print(score)
+    score = 0
+
+    print("Welcome to the Maths Quiz!")
+
+    ask_question()
+    ask_question()
+    ask_question()
+
+    print("Quiz Complete!")
+    print("Your final score is:")
+    print(score)
+
+    play_again = input("Play again? (yes/no): ")
