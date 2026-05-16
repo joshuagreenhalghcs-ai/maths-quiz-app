@@ -1,30 +1,56 @@
-print("Welcome to the Maths Quiz!")
+import random
 
 score = 0
 
-answer = input("What is 5 + 3? ")
+print("Select Difficulty")
+print("1. Easy")
+print("2. Medium")
+print("3. Hard")
 
-if answer == "8":
-    print("Correct!")
-    score = score + 1
-else:
-    print("Wrong!")
+difficulty = input("Choose difficulty: ")
 
-answer = input("What is 10 - 4? ")
+def ask_question():
+    global score
 
-if answer == "6":
-    print("Correct!")
-    score = score + 1
-else:
-    print("Wrong!")
+    operators = ["+", "-", "*"]
 
-answer = input("What is 7 x 2? ")
+    operator = random.choice(operators)
 
-if answer == "14":
-    print("Correct!")
-    score = score + 1
-else:
-    print("Wrong!")
+    if difficulty == "1":
+        max_number = 10
+
+    elif difficulty == "2":
+        max_number = 50
+
+    else:
+        max_number = 100
+
+    num1 = random.randint(1, max_number)
+    num2 = random.randint(1, max_number)
+
+    if operator == "+":
+        correct_answer = num1 + num2
+
+    elif operator == "-":
+        correct_answer = num1 - num2
+
+    else:
+        correct_answer = num1 * num2
+
+    answer = int(input(f"What is {num1} {operator} {num2}? "))
+
+    if answer == correct_answer:
+        print("Correct!")
+        score += 1
+
+    else:
+        print("Wrong!")
+
+print("Welcome to the Maths Quiz!")
+
+ask_question()
+ask_question()
+ask_question()
 
 print("Quiz Complete!")
 print("Your final score is:")
