@@ -1,6 +1,6 @@
 import random
 
-score = 0
+high_score = 0
 
 print("Select Difficulty")
 print("1. Easy")
@@ -69,6 +69,13 @@ while play_again == "yes":
     print("Quiz Complete!")
     print("Your final score is:")
     print(score)
+
+    if score > high_score:
+        high_score = score
+        print("New High Score!")
+
+    print("High Score:")
+    print(high_score)
 
     play_again = input("Play again? (yes/no): ")
     
